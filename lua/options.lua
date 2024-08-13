@@ -63,3 +63,5 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.opt.conceallevel = 1
+
+vim.opt.colorcolumn = '85'
