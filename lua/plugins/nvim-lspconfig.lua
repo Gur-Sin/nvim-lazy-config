@@ -180,6 +180,9 @@ return {
       },
     }
 
+    -- Dartls
+    require('lspconfig').dartls.setup {}
+
     -- Ensure the servers and tools above are installed
     --  To check the current status of installed tools and/or manually install
     --  other tools, you can run
@@ -204,7 +207,6 @@ return {
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
         end,
       },
     }

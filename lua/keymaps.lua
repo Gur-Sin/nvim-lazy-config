@@ -40,3 +40,9 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 vim.keymap.set('n', '<leader>x', ':Ex<CR>')
+
+vim.keymap.set('n', '<leader>tc', function()
+  if vim.bo.filetype == 'java' then
+    require('jdtls').test_class()
+  end
+end)
