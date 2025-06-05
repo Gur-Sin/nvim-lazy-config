@@ -67,3 +67,7 @@ vim.opt.scrolloff = 10
 vim.opt.conceallevel = 1
 
 vim.opt.colorcolumn = '85'
+
+vim.diagnostic.config {
+  virtual_text = true,
+}

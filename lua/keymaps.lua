@@ -19,6 +19,12 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Erase a word when Ctrl + Backspace is pressed in Insert mode
+vim.keymap.set('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
+
+-- Show LSP diagnostics
+vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -41,8 +47,6 @@ vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 vim.keymap.set('n', '<leader>x', ':Ex<CR>')
 
-vim.keymap.set('n', '<leader>tc', function()
-  if vim.bo.filetype == 'java' then
-    require('jdtls').test_class()
-  end
-end)
+-- Prevent deleting from also copying
+vim.keymap.set({ 'n', 'v' }, 'd', '"_d', { noremap = true })
+vim.keymap.set('n', 'dd', '"_dd', { noremap = true })
